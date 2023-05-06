@@ -51,25 +51,29 @@
                   <th>tempat lahir</th>
                   <th>tanggal lahir</th>
                   <th>HP</th>
+                  <th>Kelas</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                @if($mhs->count() > 0)
-                  @foreach($mhs as $i => $m)
+                @if($mahasiswa->count() > 0)
+                  @foreach($paginate as $i => $mhs)
                     <tr>
                       <td>{{++$i}}</td>
-                      <td>{{$m->nim}}</td>
-                      <td>{{$m->nama}}</td>
-                      <td>{{$m->jk}}</td>
-                      <td>{{$m->tempat_lahir}}</td>
-                      <td>{{$m->tanggal_lahir}}</td>
-                      <td>{{$m->hp}}</td>
+                      <td>{{$mhs->nim}}</td>
+                      <td>{{$mhs->nama}}</td>
+                      <td>{{$mhs->jk}}</td>
+                      <td>{{$mhs->tempat_lahir}}</td>
+                      <td>{{$mhs->tanggal_lahir}}</td>
+                      <td>{{$mhs->hp}}</td>
+                      <td>{{$mhs->kelas->nama_kelas}}</td>
                       <td>
                         <!-- Bikin tombol edit dan delete -->
-                        <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                        <a href="{{ url('/mahasiswa/'. $mhs->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                        
+                        <a href="{{url('/mahasiswa/'.$mhs->id.'/khs/')}}" class="btn btn-sm btn-primary">nilai</a>
   
-                        <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
+                        <form method="POST" action="{{ url('/mahasiswa/'.$mhs->id) }}" >
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-sm btn-danger">hapus</button>

@@ -56,6 +56,15 @@
     </div>
 
     <div class="form-group">
+        <label>Kelas</label>
+        <select class="form-control @error('kelas') is-invalid @enderror" value="{{isset($mhs)? $mhs->kelas : old('kelas')}}" name="kelas" >
+            @foreach($kelas as $kls)
+            <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="form-group">
         <label>Alamat</label>
         <input class="form-control" @error('alamat') is-invalid @enderror type="text" value="{{ isset($mhs)? $mhs->alamat : old('alamat') }}" name="alamat">
         @error('alamat')

@@ -78,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('cari', [BukuController::class, 'cari'])->name('cari');
 
+    Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
 
     Route::prefix('product')->group(function () {
         Route::get('/roti', [ProductController::class, 'roti']);

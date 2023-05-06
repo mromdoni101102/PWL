@@ -17,4 +17,14 @@ class MahasiswaModel extends Model
         'alamat',
         'hp'
     ];
+    protected $guarted = ['id'];
+
+    public function kelas()
+    {
+        return $this->belongsTo(kelas::class);
+    }
+    public function matakuliah()
+    {
+        return $this->belongsToMany(Matakuliah::class, 'mahasiswa_matakuliah', 'mahasiswa_id', 'matakuliah_id')->withPivot('nilai');
+    }
 }
