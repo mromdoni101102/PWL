@@ -83,6 +83,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('articles', ArticleController::class);
 
+    Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
+
     Route::prefix('product')->group(function () {
         Route::get('/roti', [ProductController::class, 'roti']);
         Route::get('/susu', [ProductController::class, 'susu']);
