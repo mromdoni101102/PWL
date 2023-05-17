@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BukuController;
@@ -79,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('cari', [BukuController::class, 'cari'])->name('cari');
 
     Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
+
+    Route::resource('articles', ArticleController::class);
 
     Route::prefix('product')->group(function () {
         Route::get('/roti', [ProductController::class, 'roti']);
