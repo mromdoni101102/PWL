@@ -47,6 +47,7 @@
                   <th>No</th>
                   <th>NIM</th>
                   <th>Nama</th>
+                  <th>Foto</th>
                   <th>JK</th>
                   <th>tempat lahir</th>
                   <th>tanggal lahir</th>
@@ -62,6 +63,7 @@
                       <td>{{++$i}}</td>
                       <td>{{$mhs->nim}}</td>
                       <td>{{$mhs->nama}}</td>
+                      <td><img src="{{ asset('/storage/' . $mhs->foto) }}" alt="" width="100px" height="100px" style="overflow: auto"></td>
                       <td>{{$mhs->jk}}</td>
                       <td>{{$mhs->tempat_lahir}}</td>
                       <td>{{$mhs->tanggal_lahir}}</td>
