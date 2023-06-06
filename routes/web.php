@@ -75,6 +75,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('/mahasiswa', MahasiswaController::class);
 
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
+
     Route::resource('/buku', BukuController::class);
 
     Route::post('cari', [BukuController::class, 'cari'])->name('cari');
